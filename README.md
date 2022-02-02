@@ -9,7 +9,7 @@ thanks to bailey for uhhh.... making this usable? idk what to say, shocked that 
 
 1. Download pyinstaller (```pip install pyinstaller```)
 2. Into a terminal, type ```pyinstaller main.py```
-That will create a folder called ```build``` with everything needed to run the program, and one called ```dist``` that has the result including a ```main.exe ``` and if you are on Linux it will just create a executable called ```main``` You would need everything in the folder, but nothing else.
+That will create a folder called ```build``` with everything needed to run the program, and one called ```dist``` that has the result including a ```main.exe``` and if you are on Linux it will just create a executable called ```main``` You would need everything in the folder, but nothing else.
 
-DISCLAIMER: If you do this on windows it will make a .exe and if you do it on linux it will build a executeable.
+
 
