@@ -1,3 +1,4 @@
+from os import stat
 from tkinter import *
 from tkinter import messagebox
 from tkinter import simpledialog
@@ -20,9 +21,8 @@ tkWindow.title('O.S.M.A')
 
 # Function Definitions
 
+active = print("button active i guess idk")
 
-
-       
 
 def pInfo():
     pnAnswer = simpledialog.askstring("Add New Patient", "Insert Name")
@@ -41,10 +41,16 @@ def pInfo():
     file.close
 
 
-def open():
-    file = askopenfile(mode='r')
-    messagebox.showinfo(file.readlines())
-
+def oInfo():
+    tf = filedialog.askopenfilename( 
+        title="Open Patient Information", 
+        )
+    txtarea = Text(tkWindow, width=40, height=10)
+    txtarea.pack(pady=20)
+    tf = open(tf)
+    data = tf.read()
+    txtarea.insert(END, data)
+    
 
 def closeWindow():
     tkWindow.destroy()
@@ -53,33 +59,41 @@ def closeWindow():
 # Button Creation
 
 
-
 BTN = Button(tkWindow,
              text='Add New Patient',
-             # height=5,
-             # width=10,
+             #height=5,
+             #width=10,
              command=pInfo)
 
 
-BTN2 = Button(tkWindow,
-              text='Load Patient Info',
-              # height=5,
-              # width=10,
-              command=open)
+BTN2 = Button(
+tkWindow, 
+text="Load Patient Info", 
+#height=5,
+#width=10,
+command=oInfo
+    )
 
-BTN_QUIT = Button(tkWindow, text="Quit", command=closeWindow)
+
+BTN_QUIT = Button(tkWindow,
+              text='Exit O.S.M.A',
+              #height=5,
+              #width=10,
+              command=closeWindow)
+ 
+
 
 
 # Packing
 BTN.pack()
-BTN2.pack()
 BTN_QUIT.pack()
+
 
 # TODO: I highly recommend switching to a grid layout, easier to control where elements are :)
 # Placement
 BTN.place(x=0, y=0)
-BTN2.place(x=0, y=125)
-BTN_QUIT.place(x=700, y=500)
+BTN2.place(x=0, y=75)
+BTN_QUIT.place(x=625, y=500)
 
 # Run the window
 tkWindow.mainloop()
