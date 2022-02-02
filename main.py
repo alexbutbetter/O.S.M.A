@@ -9,47 +9,52 @@ from tkinter.filedialog import askopenfile
 
 
 
+
 # Initial window setup
 tkWindow = Tk()
 tkWindow.geometry('800x600')
 size = tkWindow['bg'] = 'white'
+tkWindow.resizable(False, False)
 tkWindow.title('O.S.M.A')
 
 
 # Function Definitions
-def open_files():
-    path = askopenfile(title="Select a file")
-    path.readlines()
-    
-def save_files():
-    path = asksaveasfile(title = "Select a file ")
 
+
+
+       
 
 def pInfo():
     pnAnswer = simpledialog.askstring("Add New Patient", "Insert Name")
     paAnswer = simpledialog.askstring("Patient Age", "Insert Age") # Changed this to askinteger and now i changed it to askstring cuz uhh idfk
     pdAnswer = simpledialog.askstring("Patient's Illness", "Insert Illness (optional)") 
-    file1 = save_files()
+    
     L = ["Name of patient is: ", pnAnswer, "\n"]
     L2 = ["Age of patient: ", paAnswer, "\n"]
     L3 = ["Patient's Illness: ", pdAnswer,"\n" ]
-    file1.writelines(L + L2 + L3)
-    file1.close
 
-def showMsg():   
-    # You have to specify the arguments if you are using anything past the first
-    # The first argument that showinfo takes in is the title, so it assumed title=data
-    messagebox.showinfo(title="Patient Info", message=open_files())
+    file = filedialog.asksaveasfile(mode='w', defaultextension='txt')
+    if file is None:
+        return
+
+    file.writelines(L + L2 + L3)
+    file.close
 
 
-      
-    
+def open():
+    file = askopenfile(mode='r')
+    messagebox.showinfo(file.readlines())
+
 
 def closeWindow():
     tkWindow.destroy()
 
 
 # Button Creation
+
+text = Tk.Text(tkWindow, height=12)
+text.grid(column=0, row=0, sticky='nsew')
+
 BTN = Button(tkWindow,
              text='Add New Patient',
              # height=5,
@@ -61,7 +66,7 @@ BTN2 = Button(tkWindow,
               text='Load Patient Info',
               # height=5,
               # width=10,
-              command=showMsg)
+              command=open)
 
 BTN_QUIT = Button(tkWindow, text="Quit", command=closeWindow)
 
@@ -81,4 +86,3 @@ BTN_QUIT.place(x=700, y=500)
 tkWindow.mainloop()
 
 
-# help plz also need to fix error :(
