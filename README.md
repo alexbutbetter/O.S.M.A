@@ -8,8 +8,8 @@ thanks to bailey for uhhh.... making this usable? idk what to say, shocked that 
 ## How to build
 
 1. Download pyinstaller (```pip install pyinstaller```)
-2. Into a terminal type in ```pyinstaller main.py```
-That will create a folder called ```build``` with everything needed to build your distributable, and one called ```dist``` that has the result including a ```main.exe``` A user of your script would need everything in the folder, but nothing else.
+2. Into a terminal, type ```pyinstaller main.py```
+That will create a folder called ```build``` with everything needed to run the program, and one called ```dist``` that has the result including a ```main.exe``` You would need everything in the folder, but nothing else.
 
 DISCLAIMER: As a Linux dev, I still don't know how to build for linux so uhh... i'm kinda of a shitty dev-
 
