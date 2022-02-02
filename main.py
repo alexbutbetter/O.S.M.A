@@ -52,8 +52,7 @@ def closeWindow():
 
 # Button Creation
 
-text = Tk.Text(tkWindow, height=12)
-text.grid(column=0, row=0, sticky='nsew')
+
 
 BTN = Button(tkWindow,
              text='Add New Patient',
