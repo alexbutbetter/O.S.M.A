@@ -11,5 +11,7 @@ thanks to bailey for uhhh.... making this usable? idk what to say, shocked that 
 
 # How to compile 
 
-1. Use pyinstaller 
+1. Use pyinstaller (```pip install pyinstaller```)
+
+
 
