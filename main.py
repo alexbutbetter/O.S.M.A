@@ -7,10 +7,6 @@ from tkinter.filedialog import asksaveasfile
 from tkinter.filedialog import askopenfile
 
 
-
-
-
-
 # Initial window setup
 tkWindow = Tk()
 tkWindow.geometry('800x600')
@@ -21,18 +17,18 @@ tkWindow.title('O.S.M.A')
 
 # Function Definitions
 
-active = print("button active i guess idk")
+active = print("O.S.M.A ON")
 
 
 def pInfo():
     pnAnswer = simpledialog.askstring("Add New Patient", "Insert Name")
-    paAnswer = simpledialog.askstring("Patient Age", "Insert Age") # Changed this to askinteger and now i changed it to askstring cuz uhh idfk
+    paAnswer = simpledialog.askstring("Patient Age", "Insert Age") 
     pdAnswer = simpledialog.askstring("Patient's Illness", "Insert Illness (optional)") 
-    
+    pnoAnswer = simpledialog.askstring("Additional Notes", "Insert Notes (optional)") 
     L = ["Name of patient is: ", pnAnswer, "\n"]
     L2 = ["Age of patient: ", paAnswer, "\n"]
     L3 = ["Patient's Illness: ", pdAnswer,"\n" ]
-
+    L4 = ["Notes: ", pnoAnswer,"\n" ] 
     file = filedialog.asksaveasfile(mode='w', defaultextension='txt')
     if file is None:
         return
@@ -42,15 +38,11 @@ def pInfo():
 
 
 def oInfo():
-    tf = filedialog.askopenfilename( 
-        title="Open Patient Information", 
-        )
-    txtarea = Text(tkWindow, width=40, height=10)
-    txtarea.pack(pady=20)
+    tf = filedialog.askopenfilename(title="Open Patient Information")
     tf = open(tf)
     data = tf.read()
-    txtarea.insert(END, data)
-    
+    Label(tkWindow, text=data, relief=FLAT)
+ 
 
 def closeWindow():
     tkWindow.destroy()
@@ -94,6 +86,7 @@ BTN_QUIT.pack()
 BTN.place(x=0, y=0)
 BTN2.place(x=0, y=75)
 BTN_QUIT.place(x=625, y=500)
+
 
 # Run the window
 tkWindow.mainloop()
