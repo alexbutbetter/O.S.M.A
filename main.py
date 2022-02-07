@@ -1,4 +1,3 @@
-from os import stat
 from tkinter import *
 from tkinter import messagebox
 from tkinter import simpledialog
@@ -6,6 +5,8 @@ from tkinter import filedialog
 from tkinter.filedialog import asksaveasfile
 from tkinter.filedialog import askopenfile
 
+#Global varible to store the row poition of the label
+CURRENT_LABEL_ROW =0
 
 # Initial window setup
 tkWindow = Tk()
@@ -13,6 +14,12 @@ tkWindow.geometry('800x600')
 size = tkWindow['bg'] = 'white'
 tkWindow.resizable(False, False)
 tkWindow.title('O.S.M.A')
+
+
+
+# configure the grid columns and weights
+tkWindow.columnconfigure(0, weight=1)
+tkWindow.columnconfigure(1, weight=3)
 
 
 # Function Definitions
@@ -38,11 +45,15 @@ def pInfo():
 
 
 def oInfo():
+    """adds a new patient to the ui from saved files"""
+    global CURRENT_LABEL_ROW 
     tf = filedialog.askopenfilename(title="Open Patient Information")
-    tf = open(tf)
+    tf = open(tf,"r")
     data = tf.read()
-    Label(tkWindow, text=data, relief=FLAT)
- 
+    Label(tkWindow, text=data, relief=FLAT).grid(row=CURRENT_LABEL_ROW, column=1, sticky=W)
+    
+    CURRENT_LABEL_ROW += 1 #increment the row position of the label by 1 so that the next label is added below the previous one
+    
 
 def closeWindow():
     tkWindow.destroy()
@@ -76,19 +87,13 @@ BTN_QUIT = Button(tkWindow,
 
 
 
-# Packing
-BTN.pack()
-BTN_QUIT.pack()
 
 
 # TODO: I highly recommend switching to a grid layout, easier to control where elements are :)
 # Placement
-BTN.place(x=0, y=0)
-BTN2.place(x=0, y=75)
-BTN_QUIT.place(x=625, y=500)
-
+BTN.grid(column=0, row=0, sticky=W, padx=5, pady=5)
+BTN2.grid(column=0, row=1,  sticky=W, padx=5, pady=5)
+BTN_QUIT.grid(column=0, row=2,  sticky=W, padx=5, pady=5)
 
 # Run the window
 tkWindow.mainloop()
-
-
