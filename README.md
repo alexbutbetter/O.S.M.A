@@ -10,7 +10,7 @@ That will create a folder called ```build``` with everything needed to run the p
 
 ## Todo
 
-What I mostly have in mind is to make it look better in just tkiner, aka just polishing it for the alpha build.
+What I mostly have in mind is to make it look better in just tkinter, aka just polishing it for the alpha build.
 
 ## Thanks to the contributors
 
