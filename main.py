@@ -1,3 +1,5 @@
+# O.S.M.A by Aleksander Kurpiewski
+
 from tkinter import *
 from tkinter import messagebox
 from tkinter import simpledialog
@@ -40,7 +42,7 @@ def pInfo():
     if file is None:
         return
 
-    file.writelines(L + L2 + L3)
+    file.writelines(L + L2 + L3 + L4)
     file.close
 
 
