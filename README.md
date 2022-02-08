@@ -10,7 +10,7 @@ That will create a folder called ```build``` with everything needed to run the p
 
 ## Todo
 
-What I mostly have in mind is to port it to either kivy or make it look better in tkiner, I think the ladder would be better so I'm gonna work on that aka just polishing it for the alpha build.
+What I mostly have in mind is to make it look better in just tkiner, aka just polishing it for the alpha build.
 
 ## Thanks to the contributors
 
