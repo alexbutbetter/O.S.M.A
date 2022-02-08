@@ -14,4 +14,4 @@ What I mostly have in mind is to port it to either kivy or make it look better i
 
 ## Thanks to the contributors
 
-Special thanks to [Bailey Carothers](https://github.com/baileycarothers) and [Aadil Matloob Jan](https://github.com/aadil494)
+Special thanks to [Bailey Carothers](https://github.com/baileycarothers) and [Aadil Matloob Jan](https://github.com/aadil494) for contributing to O.S.M.A!
