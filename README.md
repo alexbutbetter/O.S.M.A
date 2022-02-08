@@ -8,10 +8,10 @@ O.S.M.A (Open Source Medical App) is well a open source app designed for medical
 2. Into a terminal, type ```pyinstaller main.py```
 That will create a folder called ```build``` with everything needed to run the program, and one called ```dist``` that has the result including a ```main.exe``` and if you are on Linux it will just create a executable called ```main``` You would need everything in the folder, but nothing else.
 
-# ToDo
+## Todo
 
 What I mostly have in mind is to port it to either kivy or make it look better in tkiner, I think the ladder would be better so I'm gonna work on that aka just polishing it for the alpha build.
 
-# Thanks to the contributors
+## Thanks to the contributors
 
 Special thanks to [Bailey Carothers](https://github.com/baileycarothers) and [Aadil Matloob Jan](https://github.com/aadil494)
