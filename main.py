@@ -2,6 +2,7 @@
 
 from tkinter import *
 from tkinter import messagebox
+from tkinter import ttk, Tk
 from tkinter import simpledialog
 from tkinter import filedialog
 from tkinter.filedialog import asksaveasfile
@@ -14,7 +15,12 @@ CURRENT_LABEL_ROW =0
 tkWindow = Tk()
 tkWindow.geometry('800x600')
 size = tkWindow['bg'] = 'white'
+photo = PhotoImage(file = "Untitled.png")
+tkWindow.iconphoto(False, photo)
 tkWindow.resizable(False, False)
+s = ttk.Style()
+tkWindow.tk.call("source", "azure.tcl")
+tkWindow.tk.call("set_theme", "dark")
 tkWindow.title('O.S.M.A')
 
 
@@ -65,7 +71,7 @@ def closeWindow():
 
 
 BTN = Button(tkWindow,
-             text='Add New Patient',
+             text='New Patient ',
              #height=5,
              #width=10,
              command=pInfo)
@@ -73,7 +79,7 @@ BTN = Button(tkWindow,
 
 BTN2 = Button(
 tkWindow, 
-text="Load Patient Info", 
+text="Load Patient", 
 #height=5,
 #width=10,
 command=oInfo
@@ -95,7 +101,7 @@ BTN_QUIT = Button(tkWindow,
 # Placement
 BTN.grid(column=0, row=0, sticky=W, padx=5, pady=5)
 BTN2.grid(column=0, row=1,  sticky=W, padx=5, pady=5)
-BTN_QUIT.grid(column=0, row=2,  sticky=W, padx=5, pady=5)
+BTN_QUIT.grid(column=5, row=10,  sticky=W, padx=5, pady=450)
 
 # Run the window
 tkWindow.mainloop()
