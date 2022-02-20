@@ -2,9 +2,6 @@
 
 O.S.M.A (Open Source Medical App) is well a open source app designed for medical use. The actual programs people use at hospitals are VERY outdated... so that's why I made the repo.
 
-## Todo
-
-Make a logo.
 
 ## Thanks to the contributors
 
