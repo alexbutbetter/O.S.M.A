@@ -7,9 +7,8 @@ from tkinter import simpledialog
 from tkinter import filedialog
 from tkinter.filedialog import asksaveasfile
 from tkinter.filedialog import askopenfile
+import main
 import os 
-import main_pl
-import sys
 
 #Global varible to store the row poition of the label
 CURRENT_LABEL_ROW =0
@@ -18,13 +17,13 @@ CURRENT_LABEL_ROW =0
 tkWindow = Tk()
 tkWindow.geometry('800x600')
 size = tkWindow['bg'] = 'white'
-photo = PhotoImage(file = "Untitled.png")
+photo = PhotoImage(file = "Untitled copy.png")
 tkWindow.iconphoto(False, photo)
 tkWindow.resizable(False, False)
 s = ttk.Style()
 tkWindow.tk.call("source", "azure.tcl")
 tkWindow.tk.call("set_theme", "dark")
-tkWindow.title('O.S.M.A')
+tkWindow.title('O.S.M.A (Polski)')
 
 
 
@@ -39,14 +38,14 @@ active = print("O.S.M.A ON")
 
 
 def pInfo():
-    pnAnswer = simpledialog.askstring("Add New Patient", "Insert Name")
-    paAnswer = simpledialog.askstring("Patient Age", "Insert Age") 
-    pdAnswer = simpledialog.askstring("Patient's Illness", "Insert Illness (optional)") 
-    pnoAnswer = simpledialog.askstring("Additional Notes", "Insert Notes (optional)") 
-    L = ["Name of patient is: ", pnAnswer, "\n"]
-    L2 = ["Age of patient: ", paAnswer, "\n"]
-    L3 = ["Patient's Illness: ", pdAnswer,"\n" ]
-    L4 = ["Notes: ", pnoAnswer,"\n" ] 
+    pnAnswer = simpledialog.askstring("Dodaj nowego pacjenta", "Wprowadź imię pacjenta")
+    paAnswer = simpledialog.askstring("Wiek pacjenta", "Wprowadź wiek pacjenta") 
+    pdAnswer = simpledialog.askstring("Wprowadź chorobę pacjenta", "Wyprowdź chorobę (dodatkowę)") 
+    pnoAnswer = simpledialog.askstring("Notatki dodatkowę", "Wyprowadż notatkę (dodatkowę)") 
+    L = ["Imię pacjenta: ", pnAnswer, "\n"]
+    L2 = ["Wiek pacjenta: ", paAnswer, "\n"]
+    L3 = ["Choroba Pacjenta: ", pdAnswer,"\n" ]
+    L4 = ["Notatki: ", pnoAnswer,"\n" ] 
     file = filedialog.asksaveasfile(mode='w', defaultextension='txt')
     if file is None:
         return
@@ -58,7 +57,7 @@ def pInfo():
 def oInfo():
     """adds a new patient to the ui from saved files"""
     global CURRENT_LABEL_ROW 
-    tf = filedialog.askopenfilename(title="Open Patient Information")
+    tf = filedialog.askopenfilename(title="Wybierz pacjenta")
     tf = open(tf,"r")
     data = tf.read()
     Label(tkWindow, text=data, relief=FLAT).grid(row=CURRENT_LABEL_ROW, column=1, sticky=W)
@@ -67,12 +66,8 @@ def oInfo():
     
 
 def closeWindow():
-    tkWindow.exit()
+    tkWindow.quit()
 
-
-def osmaPl():
-   os.system('main_pl.py')
-   tkWindow.destroy()
 
 
 
@@ -81,7 +76,7 @@ def osmaPl():
 
 
 BTN = Button(tkWindow,
-             text='New Patient ',
+             text='Dodaj nowego pacjenta ',
              #height=5,
              #width=10,
              command=pInfo)
@@ -89,19 +84,12 @@ BTN = Button(tkWindow,
 
 BTN2 = Button(
 tkWindow, 
-text="Load Patient", 
+text="Otwórz danę pacjenta", 
 #height=5,
 #width=10,
 command=oInfo
     )
 
-BTN3 = Button(
-tkWindow, 
-text="Switch language to Polish (Język Polski)", 
-#height=5,
-#width=10,
-command=osmaPl
-    )
 
 BTN_QUIT = Button(tkWindow,
               text='Exit O.S.M.A',
@@ -118,7 +106,6 @@ BTN_QUIT = Button(tkWindow,
 # Placement
 BTN.grid(column=0, row=0, sticky=W, padx=5, pady=5)
 BTN2.grid(column=0, row=1,  sticky=W, padx=5, pady=5)
-BTN3.grid(column=0, row=2,  sticky=W, padx=5, pady=5)
 BTN_QUIT.grid(column=5, row=10,  sticky=W, padx=5, pady=450)
 
 tkWindow.mainloop()
