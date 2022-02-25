@@ -67,7 +67,7 @@ def oInfo():
     
 
 def closeWindow():
-    tkWindow.exit()
+    tkWindow.quit()
 
 
 def osmaPl():
