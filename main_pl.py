@@ -17,9 +17,6 @@ CURRENT_LABEL_ROW =0
 tkWindow = Tk()
 tkWindow.geometry('800x600')
 size = tkWindow['bg'] = 'white'
-photo = PhotoImage(file = "Untitled copy.png")
-tkWindow.iconphoto(False, photo)
-tkWindow.resizable(False, False)
 s = ttk.Style()
 tkWindow.tk.call("source", "azure.tcl")
 tkWindow.tk.call("set_theme", "dark")
