@@ -4,7 +4,7 @@ O.S.M.A (Open Source Medical App) is well a open source app designed for medical
 
 ## Trello
 
-[Trello](https://trello.com/b/0u06f0Qr/osma)
+[The link to the Trello board](https://trello.com/b/0u06f0Qr/osma)
 
 ## Thanks to the contributors
 
