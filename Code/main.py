@@ -40,6 +40,8 @@ active = print("O.S.M.A ON")
 
 def pInfo():
     pnAnswer = simpledialog.askstring("Add New Patient", "Insert Name")
+    if pnAnswer is None:
+       return
     paAnswer = simpledialog.askstring("Patient Age", "Insert Age") 
     pdAnswer = simpledialog.askstring("Patient's Illness", "Insert Illness (optional)") 
     pnoAnswer = simpledialog.askstring("Additional Notes", "Insert Notes (optional)") 
