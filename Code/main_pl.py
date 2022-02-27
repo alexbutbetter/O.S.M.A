@@ -1,4 +1,4 @@
-# O.S.M.A by Aleksander Kurpiewski
+# O.S.M.A 
 
 from tkinter import *
 import tkinter
@@ -35,6 +35,7 @@ tkWindow.columnconfigure(1, weight=3)
 active = print("O.S.M.A ON")
 
 
+ 
 def pInfo():
     pnAnswer = simpledialog.askstring("Dodaj nowego pacjenta", "Wprowadź imię pacjenta")
     paAnswer = simpledialog.askstring("Wiek pacjenta", "Wprowadź wiek pacjenta") 
@@ -50,6 +51,18 @@ def pInfo():
 
     file.writelines(L + L2 + L3 + L4)
     file.close
+
+    import subprocess
+    from tkinter import messagebox as mb
+    res = mb.askquestion('Print', 
+                         'Do you want to print the contents of the file to a Printer?')
+      
+    if res == 'yes' :
+          lpr =  subprocess.Popen("/usr/bin/lpr", stdin=subprocess.PIPE)
+          lpr.stdin.write(L + L2 + L3 + L4)
+          
+    else :
+        mb.showinfo('Return', 'Returning to main application')
 
 
 def oInfo():

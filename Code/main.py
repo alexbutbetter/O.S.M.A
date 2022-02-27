@@ -1,4 +1,4 @@
-# O.S.M.A by Aleksander Kurpiewski
+# O.S.M.A 
 
 from tkinter import *
 import tkinter
@@ -56,6 +56,17 @@ def pInfo():
     file.writelines(L + L2 + L3 + L4)
     file.close
 
+    from tkinter import messagebox as mb
+    res = mb.askquestion('Print', 
+                         'Do you want to print the contents of the file to a Printer?')
+      
+    if res == 'yes' :
+      import os
+      os.startfile(file, "print")
+
+    else :
+        mb.showinfo('Return', 'Returning to main application')
+
 
 def oInfo():
     """adds a new patient to the ui from saved files"""
@@ -96,7 +107,6 @@ BTN_QUIT = Button(tkWindow,
               command=closeWindow)
  
 
-# TODO: I highly recommend switching to a grid layout, easier to control where elements are :)
 # Placement
 BTN.grid(column=0, row=0, sticky=W, padx=5, pady=5)
 BTN2.grid(column=0, row=1,  sticky=W, padx=5, pady=5)
