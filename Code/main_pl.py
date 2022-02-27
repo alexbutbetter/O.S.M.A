@@ -1,14 +1,13 @@
 # O.S.M.A by Aleksander Kurpiewski
 
 from tkinter import *
+import tkinter
 from tkinter import messagebox
 from tkinter import ttk, Tk
 from tkinter import simpledialog
 from tkinter import filedialog
 from tkinter.filedialog import asksaveasfile
 from tkinter.filedialog import askopenfile
-import main
-import os 
 
 #Global varible to store the row poition of the label
 CURRENT_LABEL_ROW =0
@@ -17,7 +16,9 @@ CURRENT_LABEL_ROW =0
 tkWindow = Tk()
 tkWindow.geometry('800x600')
 size = tkWindow['bg'] = 'white'
+tkWindow.iconphoto(False, tkinter.PhotoImage(file='Untitled.png'))
 s = ttk.Style()
+tkWindow.resizable(False, False)
 tkWindow.tk.call("source", "azure.tcl")
 tkWindow.tk.call("set_theme", "dark")
 tkWindow.title('O.S.M.A (Polski)')

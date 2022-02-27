@@ -1,29 +1,30 @@
 # O.S.M.A by Aleksander Kurpiewski
 
 from tkinter import *
+import tkinter
 from tkinter import messagebox
 from tkinter import ttk, Tk
 from tkinter import simpledialog
 from tkinter import filedialog
 from tkinter.filedialog import asksaveasfile
 from tkinter.filedialog import askopenfile
-import os 
-import main_pl
+import subprocess
 import sys
 
 #Global varible to store the row poition of the label
 CURRENT_LABEL_ROW =0
 
+
 # Initial window setup
 tkWindow = Tk()
 tkWindow.geometry('800x600')
 size = tkWindow['bg'] = 'white'
-photo = PhotoImage(file = "Untitled.png")
-tkWindow.iconphoto(False, photo)
+
 tkWindow.resizable(False, False)
 s = ttk.Style()
 tkWindow.tk.call("source", "azure.tcl")
 tkWindow.tk.call("set_theme", "dark")
+tkWindow.iconphoto(False, tkinter.PhotoImage(file='Untitled.png'))
 tkWindow.title('O.S.M.A')
 
 
@@ -37,7 +38,6 @@ tkWindow.columnconfigure(1, weight=3)
 
 active = print("O.S.M.A ON")
 
-
 def pInfo():
     pnAnswer = simpledialog.askstring("Add New Patient", "Insert Name")
     if pnAnswer is None:
@@ -49,7 +49,7 @@ def pInfo():
     L2 = ["Age of patient: ", paAnswer, "\n"]
     L3 = ["Patient's Illness: ", pdAnswer,"\n" ]
     L4 = ["Notes: ", pnoAnswer,"\n" ] 
-    file = filedialog.asksaveasfile(mode='w', defaultextension='txt')
+    file = filedialog.asksaveasfile(mode='w', defaultextension='.txt')
     if file is None:
         return
 
@@ -71,14 +71,6 @@ def oInfo():
 def closeWindow():
     tkWindow.quit()
 
-
-def osmaPl():
-   os.system('main_pl.py')
-   tkWindow.destroy()
-
-
-
-
 # Button Creation
 
 
@@ -97,14 +89,6 @@ text="Load Patient",
 command=oInfo
     )
 
-BTN3 = Button(
-tkWindow, 
-text="Switch language to Polish (Język Polski)", 
-#height=5,
-#width=10,
-command=osmaPl
-    )
-
 BTN_QUIT = Button(tkWindow,
               text='Exit O.S.M.A',
               #height=5,
@@ -112,15 +96,10 @@ BTN_QUIT = Button(tkWindow,
               command=closeWindow)
  
 
-
-
-
-
 # TODO: I highly recommend switching to a grid layout, easier to control where elements are :)
 # Placement
 BTN.grid(column=0, row=0, sticky=W, padx=5, pady=5)
 BTN2.grid(column=0, row=1,  sticky=W, padx=5, pady=5)
-BTN3.grid(column=0, row=2,  sticky=W, padx=5, pady=5)
 BTN_QUIT.grid(column=5, row=10,  sticky=W, padx=5, pady=450)
 
 tkWindow.mainloop()
