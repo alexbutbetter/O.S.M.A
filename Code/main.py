@@ -37,6 +37,17 @@ tkWindow.columnconfigure(1, weight=3)
 
 # Function Definitions
 
+def help():
+    from tkinter import messagebox as mb
+    mb.showinfo('Error Codes in O.S.M.A', 'Error 1 - To be made / unfinished function, Error 2 - No data in value, Error 3 - Placeholder, Error 4 - Incorrect file extension')
+
+
+menubar = Menu(tkWindow)
+helpmenu = Menu(menubar, tearoff=0)
+helpmenu.add_command(label="Help Index", command=help)
+menubar.add_cascade(label="Help", menu=helpmenu)
+
+
 active = print("O.S.M.A ON")
 
 def pInfo():
@@ -73,7 +84,16 @@ def oInfo():
     """adds a new patient to the ui from saved files"""
     global CURRENT_LABEL_ROW 
     tf = filedialog.askopenfilename(title="Open Patient Information")
+    import os 
+    file_extension = os.path.splitext(tf)[1]
+    if file_extension.lower() == ".txt":
+        None
+    else:
+        from tkinter import messagebox as mb 
+        mb.showerror('ERROR 4', 'Error 4, check wiki and Help tab for more information')
+
     tf = open(tf,"r")
+
     data = tf.read()
     Label(tkWindow, text=data, relief=FLAT).grid(row=3, column=2)
     
@@ -110,6 +130,8 @@ BTN_QUIT = Button(tkWindow,
 # Placement
 BTN.grid(column=0, row=0, sticky=W, padx=5, pady=5)
 BTN2.grid(column=0, row=1,  sticky=W, padx=5, pady=5)
-BTN_QUIT.grid(column=5, row=30, pady=350)
+BTN_QUIT.grid(column=5, row=30, padx=5, pady=400)
+
+tkWindow.config(menu=menubar)
 
 tkWindow.mainloop()

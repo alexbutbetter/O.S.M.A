@@ -31,8 +31,16 @@ tkWindow.columnconfigure(1, weight=3)
 
 
 # Function Definitions
+def help():
+    from tkinter import messagebox as mb
+    mb.showinfo('Error Codes in O.S.M.A', 'Error 1 - Nie Dokóńczona Funkcja Programu, Error 2 - Brak danych, Error 3 - Placeholder (czytaj plejsholder), Error 4 - Nie poprawny plik')
 
 active = print("O.S.M.A ON")
+
+menubar = Menu(tkWindow)
+helpmenu = Menu(menubar, tearoff=0)
+helpmenu.add_command(label="Index Pomocy", command=help)
+menubar.add_cascade(label="Pomoc", menu=helpmenu)
 
 
  
@@ -68,7 +76,14 @@ def oInfo():
     """adds a new patient to the ui from saved files"""
     global CURRENT_LABEL_ROW 
     tf = filedialog.askopenfilename(title="Wybierz pacjenta")
-    tf = open(tf,"r")
+    import os 
+    file_extension = os.path.splitext(tf)[1]
+    if file_extension.lower() == ".txt":
+        None
+    else:
+        from tkinter import messagebox as mb 
+        mb.showerror('ERROR 4', 'Error 4, sprawdź wiki i Pomoc')
+    tf = open(tf,"r")    
     data = tf.read()
     Label(tkWindow, text=data, relief=FLAT).grid(row=CURRENT_LABEL_ROW, column=1, sticky=W)
     
@@ -118,4 +133,5 @@ BTN.grid(column=0, row=0, sticky=W, padx=5, pady=5)
 BTN2.grid(column=0, row=1,  sticky=W, padx=5, pady=5)
 BTN_QUIT.grid(column=5, row=10,  sticky=W, padx=5, pady=450)
 
+tkWindow.config(menu=menubar)
 tkWindow.mainloop()
