@@ -1,11 +1,3 @@
-# O.S.M.A
+[![Based License](https://custom-icon-badges.herokuapp.com/badge/BASED_LICENSE-696969?logo=gigachad&style=for-the-badge)](https://github.com/thatonecalculator/BASED-LICENSE)
 
-O.S.M.A (Open Source Medical App) is well a open source app designed for medical use. The actual programs people use at hospitals are VERY outdated... so that's why I made the repo.
-
-## Trello
-
-[The link to the Trello board](https://trello.com/b/0u06f0Qr/osma)
-
-## Thanks to the contributors
-
-Special thanks to [Bailey Carothers](https://github.com/baileycarothers) and [Aadil Matloob Jan](https://github.com/aadil494) for contributing to O.S.M.A!
+Epic medical app made by some kid who has WAYYYY too much free time. Made to work with [the O.S.M.A database extension](https://github.com/alexbutbetter/osma-data)
