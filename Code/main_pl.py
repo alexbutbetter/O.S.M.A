@@ -52,17 +52,16 @@ def pInfo():
     file.writelines(L + L2 + L3 + L4)
     file.close
 
-    import subprocess
     from tkinter import messagebox as mb
     res = mb.askquestion('Print', 
-                         'Do you want to print the contents of the file to a Printer?')
+                         'Chcesz wydrukować dane? (to be made)')
       
     if res == 'yes' :
-          lpr =  subprocess.Popen("/usr/bin/lpr", stdin=subprocess.PIPE)
-          lpr.stdin.write(L + L2 + L3 + L4)
-          
+      mb.showerror('ERROR 1', 'ERROR 1 (sprawdź wiki)')
+
     else :
         mb.showinfo('Return', 'Returning to main application')
+
 
 
 def oInfo():

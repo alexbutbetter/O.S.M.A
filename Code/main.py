@@ -10,6 +10,7 @@ from tkinter.filedialog import asksaveasfile
 from tkinter.filedialog import askopenfile
 import subprocess
 import sys
+from turtle import exitonclick
 
 #Global varible to store the row poition of the label
 CURRENT_LABEL_ROW =0
@@ -49,6 +50,7 @@ def pInfo():
     L2 = ["Age of patient: ", paAnswer, "\n"]
     L3 = ["Patient's Illness: ", pdAnswer,"\n" ]
     L4 = ["Notes: ", pnoAnswer,"\n" ] 
+
     file = filedialog.asksaveasfile(mode='w', defaultextension='.txt')
     if file is None:
         return
@@ -58,11 +60,10 @@ def pInfo():
 
     from tkinter import messagebox as mb
     res = mb.askquestion('Print', 
-                         'Do you want to print the contents of the file to a Printer?')
+                         'Do you want to print the contents of the file to a Printer? (to be made)')
       
     if res == 'yes' :
-      import os
-      os.startfile(file, "print")
+      mb.showerror('ERROR 1', 'ERROR 1 (check wiki for more info)')
 
     else :
         mb.showinfo('Return', 'Returning to main application')
@@ -74,9 +75,8 @@ def oInfo():
     tf = filedialog.askopenfilename(title="Open Patient Information")
     tf = open(tf,"r")
     data = tf.read()
-    Label(tkWindow, text=data, relief=FLAT).grid(row=CURRENT_LABEL_ROW, column=1, sticky=W)
+    Label(tkWindow, text=data, relief=FLAT).grid(row=3, column=2)
     
-    CURRENT_LABEL_ROW += 1 #increment the row position of the label by 1 so that the next label is added below the previous one
     
 
 def closeWindow():
@@ -110,6 +110,6 @@ BTN_QUIT = Button(tkWindow,
 # Placement
 BTN.grid(column=0, row=0, sticky=W, padx=5, pady=5)
 BTN2.grid(column=0, row=1,  sticky=W, padx=5, pady=5)
-BTN_QUIT.grid(column=5, row=10,  sticky=W, padx=5, pady=450)
+BTN_QUIT.grid(column=5, row=30, pady=350)
 
 tkWindow.mainloop()
