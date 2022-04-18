@@ -1,4 +1,5 @@
-# O.S.M.A 
+# O.S.M.A - medical app, works with O.S.M.A database (W.I.P)
+# look up skull emoji times seven 
 
 from tkinter import *
 import tkinter
@@ -8,9 +9,7 @@ from tkinter import simpledialog
 from tkinter import filedialog
 from tkinter.filedialog import asksaveasfile
 from tkinter.filedialog import askopenfile
-import subprocess
-import sys
-from turtle import exitonclick
+
 
 #Global varible to store the row poition of the label
 CURRENT_LABEL_ROW =0
@@ -55,17 +54,22 @@ def pInfo():
     if pnAnswer is None:
        return
     paAnswer = simpledialog.askstring("Patient Age", "Insert Age") 
+    if paAnswer is None:
+       return
     pdAnswer = simpledialog.askstring("Patient's Illness", "Insert Illness (optional)") 
+    if pdAnswer is None:
+       return
     pnoAnswer = simpledialog.askstring("Additional Notes", "Insert Notes (optional)") 
+    if pnoAnswer is None:
+       return
     L = ["Name of patient is: ", pnAnswer, "\n"]
     L2 = ["Age of patient: ", paAnswer, "\n"]
     L3 = ["Patient's Illness: ", pdAnswer,"\n" ]
     L4 = ["Notes: ", pnoAnswer,"\n" ] 
 
-    file = filedialog.asksaveasfile(mode='w', defaultextension='.txt')
+    file = filedialog.asksaveasfile(mode='w', defaultextension='.bgff')
     if file is None:
         return
-
     file.writelines(L + L2 + L3 + L4)
     file.close
 
@@ -86,7 +90,7 @@ def oInfo():
     tf = filedialog.askopenfilename(title="Open Patient Information")
     import os 
     file_extension = os.path.splitext(tf)[1]
-    if file_extension.lower() == ".txt":
+    if file_extension.lower() == ".bgff":
         None
     else:
         from tkinter import messagebox as mb 
@@ -97,7 +101,9 @@ def oInfo():
     data = tf.read()
     Label(tkWindow, text=data, relief=FLAT).grid(row=3, column=2)
     
-    
+def auhhhhh():
+    from tkinter import messagebox as mb 
+    mb.showerror('ERROR 1', 'ERROR 1 (check wiki for more info)')
 
 def closeWindow():
     tkWindow.quit()
@@ -120,6 +126,8 @@ text="Load Patient",
 command=oInfo
     )
 
+BTN_DATA = Button(tkWindow, text = 'Use O.S.M.A Database', #height-5, #width=10, 
+                command=auhhhhh)
 BTN_QUIT = Button(tkWindow,
               text='Exit O.S.M.A',
               #height=5,
@@ -130,8 +138,10 @@ BTN_QUIT = Button(tkWindow,
 # Placement
 BTN.grid(column=0, row=0, sticky=W, padx=5, pady=5)
 BTN2.grid(column=0, row=1,  sticky=W, padx=5, pady=5)
+BTN_DATA.grid(column=0, row=2,  sticky=W, padx=5, pady=5)
 BTN_QUIT.grid(column=5, row=30, padx=5, pady=400)
 
 tkWindow.config(menu=menubar)
+tkWindow.mainloop() 
 
-tkWindow.mainloop()
+# funny program go brrrrrrr

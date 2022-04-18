@@ -46,9 +46,18 @@ menubar.add_cascade(label="Pomoc", menu=helpmenu)
  
 def pInfo():
     pnAnswer = simpledialog.askstring("Dodaj nowego pacjenta", "Wprowadź imię pacjenta")
+    if pnAnswer is None:
+        return
     paAnswer = simpledialog.askstring("Wiek pacjenta", "Wprowadź wiek pacjenta") 
+    if paAnswer is None:
+        return
     pdAnswer = simpledialog.askstring("Wprowadź chorobę pacjenta", "Wyprowdź chorobę (dodatkowę)") 
+    if pdAnswer is None:
+        return
     pnoAnswer = simpledialog.askstring("Notatki dodatkowę", "Wyprowadż notatkę (dodatkowę)") 
+    if pnoAnswer is None:
+        return
+
     L = ["Imię pacjenta: ", pnAnswer, "\n"]
     L2 = ["Wiek pacjenta: ", paAnswer, "\n"]
     L3 = ["Choroba Pacjenta: ", pdAnswer,"\n" ]
